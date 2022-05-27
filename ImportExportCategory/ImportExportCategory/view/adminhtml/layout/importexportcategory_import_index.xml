@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+            Import Category
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Institute\ImportExportCategory\Block\Adminhtml\Import\ImportContainer"
+                   name="import.category.form.container"
+                   template="Institute_ImportExportCategory::import/catimport.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

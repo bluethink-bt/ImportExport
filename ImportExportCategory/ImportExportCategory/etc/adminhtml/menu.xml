@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Institute_Importexport::category" title="Import Export Categories" module="Institute_Importexport" sortOrder="900" resource="Institute_ImportExportCategory::category" parent="Institute_Importexport::importexport" />
+
+        <add id="Institute_Importexport::export_category" title="Export Category"
+             module="Institute_Importexport" sortOrder="1" resource="Institute_ImportExportCategory::export"
+             parent="Institute_Importexport::category" action="importexportcategory/export"/>
+
+        <add id="Institute_Importexport::import_category" title="Import Category"
+             module="Institute_Importexport" sortOrder="2" resource="Institute_ImportExportCategory::import"
+             parent="Institute_Importexport::category" action="importexportcategory/import"/>
+    </menu>
+</config>

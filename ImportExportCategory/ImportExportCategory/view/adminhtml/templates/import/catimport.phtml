@@ -1,0 +1,79 @@
+<style>
+    .fieldset {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 25px 30px;
+        padding-right: 0;
+    }
+
+    .fieldset h2 {
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    .flexContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flexContainer .field {
+        width: 50%;
+        padding: 10px 0;
+        padding-right: 25px;
+    }
+
+    .flexContainer .field input, .flexContainer .field select {
+        width: 100%;
+        height: 35px;
+        margin-top: 7px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding-left: 15px;
+    }
+
+    .fr {
+        float: left;
+        width: 100%;
+    }
+</style>
+<form class="form" action="<?= $block->getImportUrl() ?>" data-bind="scope: 'address-scope'"
+      id="edit_form" method="post" autocomplete="on"
+      data-bind="mageInit: {'validation': {}}" data-mage-init='{"validation": {}}' enctype="multipart/form-data">
+    <?= $block->getBlockHtml('formkey') ?>
+    <fieldset class="fieldset">
+        <div class="flexContainer">
+            <div class="entity_att_section fr">
+                <div class="category_list">
+                    <div class="field">
+                        <label for="category_id" class="label">
+                            <span><?= __('CSV Sample') ?></span>
+                        </label>
+                        <div class="control">
+                            <a id="category_importer_note" title="Download Sample File"
+                               href="<?= $block->getDownloadSampleUrl(); ?>">Download sample csv format</a>
+                        </div>
+                    </div>
+
+                    <div class="field required">
+                        <label for="category_id" class="label">
+                            <span><?= __('Select File to Import') ?></span>
+                        </label>
+                        <div class="control">
+                            <input id="category_import_file" name="category_import_file"
+                                   value="" title="Select File to Import"
+                                   class="input-file required-entry _required" type="file" aria-required="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="primary">
+                        <button type="submit" class="action submit primary btn_put_json"><span>Import</span></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </fieldset>
+</form>

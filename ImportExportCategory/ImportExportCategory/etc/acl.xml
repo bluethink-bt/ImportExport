@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Institute_Importexport::importexport" title="Import/Export" sortOrder="11" >
+                    <resource id="Institute_ImportExportCategory::category" title="Categories Import/Export" sortOrder="12" >
+                        <resource id="Institute_ImportExportCategory::menu" title="Menu" sortOrder="12">
+                            <resource id="Institute_ImportExportCategory::export" title="Category Export" sortOrder="12" />
+                            <resource id="Institute_ImportExportCategory::import" title="Category Import" sortOrder="12" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+            Export Attribute Set
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Institute\ImportExportCategory\Block\Adminhtml\Export\ExportContainer"
+                   name="export.form.container"
+                   template="Institute_ImportExportCategory::export/catexport.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

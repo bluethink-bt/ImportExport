@@ -1,0 +1,117 @@
+<?php
+$categoryList = $block->getRootCategory();
+
+?>
+<style>
+    .fieldset{
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 25px 30px;
+      padding-right: 0;
+    }
+    .fieldset h2{
+      margin-bottom: 5px;
+      margin-top: 10px;
+    }
+    .flexContainer{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .flexContainer .field{
+      width: 50%;
+      padding: 10px 0;
+      padding-right: 25px;
+    }
+    .flexContainer .field input, .flexContainer .field select{
+      width: 100%;
+      height: 35px;
+      margin-top: 7px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding-left: 15px;
+    }
+    .fr{
+        float: left;
+        width: 100%;
+    }
+    </style>
+<form class="form" action="<?=$block->escapeHtmlAttr($block->getExportUrl())?>" data-bind="scope: 'address-scope'"
+    id="attribute-export-form" method="post" autocomplete="on"
+    data-bind="mageInit: {'validation': {}}" data-mage-init='{"validation": {}}'>
+    <?= $block->getBlockHtml('formkey')?>
+   <fieldset class="fieldset">
+        <div class="flexContainer">
+            <div class="entity_att_section fr">
+                <h4>Export Category</h4>
+
+                 <div class="category_set_list">
+                    <?php if ($categoryList) { ?>
+                    <div class="field required">
+                        <label for="Category" class="label">
+                            <span><?= __('Select Category') ?></span>
+                        </label>
+                        <div class="control">
+                        <select
+                            name="catgory_id" id="catgory_id"
+                            data-bind="mageInit: {'validation': {required: true}},
+                                optionsText: 'label',
+                                optionsValue: 'value',
+                                optionsCaption: 'Please select Category'"
+                            title="Entity Type" id="store_id" data-validate="{'validate-select': true}">
+                            <option selected="selected" value="">--Please select--</option>
+                            <?php foreach ($categoryList as $category) { ?>
+                            <option value="<?= $category['id'] ?>">
+                                <?=  __($category['category_name']); ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+
+
+                <div class="field">
+                    <div class="primary">
+                        <button type="submit" class="action submit primary btn_put_json"><span>Download</span></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+   </fieldset>
+</form>
+
+
+
+<script>
+    require(['jquery','jquery/ui'], function($){
+
+        $(".btn_put_json").on("click", function(e) {
+                    var disable=$(this).attr('disable');
+                    if(disable!='disable'){
+                        var submit=$('#attribute-export-form').submit();
+                    }
+                    var error=$('#attribute-export-form').find('.mage-error').length,
+                        noeError=true;
+
+                    if(error>0){
+
+                        $('.mage-error').each(function() {
+                            var styleData=$(this).css('display');
+                            if(styleData!='none'){
+                                noeError=false;
+                                return false;
+                            }
+                        });
+                    }
+                    if(noeError){
+                        $(this).attr('disable','disable');
+                    }
+                    //
+                });
+
+    });
+</script>
