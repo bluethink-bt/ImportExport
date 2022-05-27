@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Institute_Importexport::importexport" title="Import/Export"
+             module="Institute_Importexport" sortOrder="11" resource="Institute_Importexport::importexport"/>
+
+          <add id="Institute_Importexport::attributes" title="Import Export Attribute Set" module="Institute_Importexport" sortOrder="800" resource="Institute_Importexport::attribute" parent="Institute_Importexport::importexport" />
+
+        <add id="Institute_Importexport::export" title="Export Attribute Set"
+             module="Institute_Importexport" sortOrder="1" resource="Institute_Importexport::export"
+             parent="Institute_Importexport::attributes" action="importexport/export"/>
+
+        <add id="Institute_Importexport::import" title="Import Attribute Set"
+             module="Institute_Importexport" sortOrder="2" resource="Institute_Importexport::import"
+             parent="Institute_Importexport::attributes" action="importexport/import"/>
+    </menu>
+</config>
